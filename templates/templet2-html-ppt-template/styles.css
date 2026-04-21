@@ -1,0 +1,118 @@
+:root {
+  --canvas-w: 1280px;
+  --canvas-h: 720px;
+  --bg: #dfe7f2;
+  --stage-shadow: 0 28px 80px rgba(19, 42, 88, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: linear-gradient(180deg, #edf2f7 0%, #d7e1ec 100%);
+  font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck-frame {
+  position: relative;
+  width: min(100vw, calc(100vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--stage-shadow);
+}
+
+.deck-stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--canvas-w);
+  height: var(--canvas-h);
+  transform-origin: top left;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  width: var(--canvas-w);
+  height: var(--canvas-h);
+  overflow: hidden;
+}
+
+.slide.is-active {
+  display: block;
+}
+
+.slide-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.ppt-el {
+  position: absolute;
+  transform-origin: center center;
+}
+
+.ppt-pic {
+  object-fit: fill;
+}
+
+.ppt-shape {
+  overflow: hidden;
+}
+
+.ppt-line {
+  overflow: visible;
+}
+
+.geom-ellipse {
+  border-radius: 50%;
+}
+
+.geom-roundrect {
+  border-radius: 22px;
+}
+
+.geom-parallelogram {
+  clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
+}
+
+.geom-trapezoid {
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+
+.geom-diamond {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.geom-round2diag {
+  clip-path: polygon(12% 0, 100% 0, 100% 88%, 88% 100%, 0 100%, 0 12%);
+  border-radius: 18px;
+}
+
+.geom-line {
+  height: 1px !important;
+}
+
+.text-box {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.text-flow {
+  width: 100%;
+}
